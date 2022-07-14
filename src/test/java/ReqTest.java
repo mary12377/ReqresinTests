@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.is;
 import static io.restassured.http.ContentType.JSON;
 
 public class ReqTest extends TestBase {
+
+
     @Test
     void loginTest() {
         String body = "{ \"email\": \"eve.holt@reqres.in\", " +
@@ -23,6 +25,8 @@ public class ReqTest extends TestBase {
                 .statusCode(200)
                 .body("token", is("QpwL5tke4Pnpja7X4"));
     }
+
+
     @Test
     void missingPasswordLoginTest() {
         String body = "{ \"email\": \"eve.holt@reqres.in\"}";
@@ -40,6 +44,8 @@ public class ReqTest extends TestBase {
                 .statusCode(400)
                 .body("error", is("Missing password"));
     }
+    
+
     @Test
     void nameTest() {
         String name = "{\"name\": \"TestUser\"}";
@@ -54,6 +60,8 @@ public class ReqTest extends TestBase {
                 .statusCode(201)
                 .body("name", is("TestUser"));
     }
+
+
     @Test
     void emailTest() {
         String email = "{\"email\": \"janet.weaver@reqres.in\"}";
@@ -68,6 +76,8 @@ public class ReqTest extends TestBase {
                 .statusCode(201)
                 .body("email", is("janet.weaver@reqres.in"));
     }
+
+
     @Test
     void nameAndJobTest() {
         String nameAndJob = "{ \"name\": \"morpheus\",\n" +
