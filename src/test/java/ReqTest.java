@@ -6,7 +6,7 @@ import static io.restassured.http.ContentType.JSON;
 
 public class ReqTest extends TestBase {
 
-
+    
     @Test
     void loginTest() {
         String body = "{ \"email\": \"eve.holt@reqres.in\", " +
@@ -25,7 +25,7 @@ public class ReqTest extends TestBase {
                 .statusCode(200)
                 .body("token", is("QpwL5tke4Pnpja7X4"));
     }
-
+    
 
     @Test
     void missingPasswordLoginTest() {
@@ -44,10 +44,10 @@ public class ReqTest extends TestBase {
                 .statusCode(400)
                 .body("error", is("Missing password"));
     }
-    
+
 
     @Test
-    void nameTest() {
+    void nameUserTest() {
         String name = "{\"name\": \"TestUser\"}";
         given()
                 .log().uri()
@@ -60,10 +60,10 @@ public class ReqTest extends TestBase {
                 .statusCode(201)
                 .body("name", is("TestUser"));
     }
-
+    
 
     @Test
-    void emailTest() {
+    void checkEmailTest() {
         String email = "{\"email\": \"janet.weaver@reqres.in\"}";
         given()
                 .log().uri()
@@ -76,8 +76,8 @@ public class ReqTest extends TestBase {
                 .statusCode(201)
                 .body("email", is("janet.weaver@reqres.in"));
     }
-
-
+    
+    
     @Test
     void nameAndJobTest() {
         String nameAndJob = "{ \"name\": \"morpheus\",\n" +
